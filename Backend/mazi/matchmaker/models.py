@@ -21,3 +21,19 @@ class PlayerAccount(models.Model):
 	def __str__(self):
 		return self.username
 
+
+class Deck(models.Model):
+	owner = models.ForeignKey(PlayerAccount, on_delete=models.CASCADE, related_name='decks')
+	deckname = models.CharField(max_length=25)
+
+	def __str__(self):
+		return self.deckname
+
+
+class CardInstance(models.Model):
+	deck = models.ForeignKey(Deck, on_delete=models.CASCADE, related_name='cards')
+	cardid = models.IntegerField()
+
+
+class Match(models.Model):
+	starttime = models.DateTimeField(auto_now_add=True)
