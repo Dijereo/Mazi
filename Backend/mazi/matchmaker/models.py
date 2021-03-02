@@ -30,9 +30,14 @@ class Deck(models.Model):
 		return self.deckname
 
 
+class CardOwned(models.Model):
+	owner = models.ForeignKey(PlayerAccount, on_delete=models.CASCADE, related_name='cards')
+	cardid = models.IntegerField()
+
+
 class CardInstance(models.Model):
 	deck = models.ForeignKey(Deck, on_delete=models.CASCADE, related_name='cards')
-	cardid = models.IntegerField()
+	card = models.ForeignKey(CardOwned, on_delete=models.CASCADE, related_name='instances')
 
 
 class Match(models.Model):
