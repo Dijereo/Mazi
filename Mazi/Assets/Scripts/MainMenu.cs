@@ -5,6 +5,13 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
+	private string username;
+	private string password;
+
+	public void signOut() {
+
+	}
+
     public void searchGame()
     {
 
