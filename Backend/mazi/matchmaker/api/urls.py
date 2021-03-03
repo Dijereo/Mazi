@@ -1,14 +1,12 @@
 from django.urls import path
+from rest_framework.authtoken.views import obtain_auth_token
+
 from . import views
+
 
 app_name = 'matchmaker'
 
 urlpatterns = [
-    path('playeraccounts/',
-    	views.PlayerAccountListView.as_view(),
-    	name='player_account_list'),
-	
-	path('playeraccounts/<pk>/',
-		views.PlayerAccountDetailView.as_view(),
-		name='player_account_detail'),
+    path('accounts/signup', views.SignUpView.as_view(), name='signup'),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]

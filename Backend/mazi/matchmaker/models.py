@@ -9,7 +9,6 @@ class PlayerAccount(models.Model):
 		('silver', 'Silver'),
 		('gold', 'Gold')
 	)
-	username = models.CharField(max_length=25)
 	created = models.DateTimeField(auto_now_add=True)
 	player = models.ForeignKey(User, on_delete=models.CASCADE, related_name='account')
 	gamesplayed = models.IntegerField(default=0)
