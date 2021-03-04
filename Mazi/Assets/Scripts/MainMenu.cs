@@ -12,13 +12,13 @@ public class MainMenu : MonoBehaviour
 
 	}
 
-    public void searchGame()
-    {
-
-    }
-
     public void manageDecks ()
     {
     	SceneManager.LoadScene(1);
+    }
+
+    public void searchGame()
+    {
+        SceneManager.LoadScene(2);
     }
 }
