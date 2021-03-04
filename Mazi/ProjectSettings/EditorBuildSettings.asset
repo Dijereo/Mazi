@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DecksScene.unity
     guid: d68ee974c687ef04c9457f4369b7920c
+  - enabled: 1
+    path: Assets/Scenes/SignInScene.unity
+    guid: 3a58102281b1d3a47be171c47af2abda
   m_configObjects: {}
