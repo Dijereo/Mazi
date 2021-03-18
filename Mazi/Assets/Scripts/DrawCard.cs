@@ -7,6 +7,11 @@ public class DrawCard : MonoBehaviour
 	private bool indeck = true;
 	private bool inhand = false;
 
+    void OnMouseDown()
+    {
+        DrawThisCard();
+    }
+
     public void DrawThisCard()
     {
         indeck = false;
@@ -17,7 +22,7 @@ public class DrawCard : MonoBehaviour
     {
     	if (!indeck && !inhand)
     	{
-    		transform.Translate((new Vector3(-4, 0, 0)) * Time.deltaTime);
+    		transform.Translate((new Vector3(-4, 0, 0)) * Time.deltaTime, Space.World);
     		if (transform.position.x > 0) {
     			transform.position = new Vector3(0f, -3.5f, -1f);
     			inhand = true;
