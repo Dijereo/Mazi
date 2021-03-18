@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
 	private string password;
 
 	public void signOut() {
-
+        SceneManager.LoadScene(2);
 	}
 
     public void manageDecks ()
