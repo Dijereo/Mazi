@@ -1334,6 +1334,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4000533951746649941, guid: 591fd740d0fa94a4c8d7a8d866c06782, type: 3}
+      propertyPath: element
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
+    - target: {fileID: 4000533951746649941, guid: 591fd740d0fa94a4c8d7a8d866c06782, type: 3}
+      propertyPath: cardName
+      value: Fire Dragon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000533951746649941, guid: 591fd740d0fa94a4c8d7a8d866c06782, type: 3}
+      propertyPath: cardSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
+    - target: {fileID: 4000533951746649941, guid: 591fd740d0fa94a4c8d7a8d866c06782, type: 3}
+      propertyPath: cardElement
+      value: 
+      objectReference: {fileID: 21300000, guid: 0380f24e24de1194ba13e5572c4b516e, type: 3}
     - target: {fileID: 5178067356112755768, guid: 591fd740d0fa94a4c8d7a8d866c06782, type: 3}
       propertyPath: m_Name
       value: CardV2

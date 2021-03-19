@@ -15,7 +15,7 @@ public class DrawCard : MonoBehaviour
     public void DrawThisCard()
     {
         indeck = false;
-        float xtarget = 1.5f;
+        //float xtarget = 1.5f;
     }
 
     void Update()
