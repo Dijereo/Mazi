@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Card : MonoBehaviour
+public class CardShown : MonoBehaviour
 {
 	public string cardName;
 	public int attack;
@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
 	public Image cardImage;
 	// public Sprite back = ...;
 
-    void Awake()
+    void Start()
     {
     	nameText.text = cardName;
     	attackText.text = attack.ToString();
