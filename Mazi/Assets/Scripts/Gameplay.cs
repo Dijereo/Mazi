@@ -13,4 +13,21 @@ public class Gameplay : MonoBehaviour
 	public GameDeck opponentDeck;
 	public GameHand opponentHand;
 	public GameArea opponentArea;
+	private CardShown attaker;
+	private CardShown defender;
+
+	public void SetAttacker(CardShown a)
+	{
+		attaker = a;
+	}
+
+	public void SetDefender(CardShown d)
+	{
+		defender = d;
+	}
+
+	public void Attack()
+	{
+		Debug.Log("Hello");
+	}
 }

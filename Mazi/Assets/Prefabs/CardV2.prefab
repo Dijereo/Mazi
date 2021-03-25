@@ -690,7 +690,7 @@ BoxCollider:
   m_GameObject: {fileID: 5178067354851790640}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -757,8 +757,10 @@ MonoBehaviour:
   attack: 0
   defense: 0
   energy: 0
+  isAttacker: 0
   cardElement: {fileID: 0}
   cardSprite: {fileID: 0}
+  game: {fileID: 0}
   nameText: {fileID: 8799554024532822529}
   attackText: {fileID: 6578587849996019234}
   defenseText: {fileID: 8335524667049870707}

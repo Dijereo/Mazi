@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameDeck : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	private ArrayList cards = new ArrayList();
+	public Sprite el;
+	public Sprite dragon;
+	public GameHand hand;
 
-    // Update is called once per frame
-    void Update()
+	void Start()
+	{
+		//CardShown newcard = new CardShown();
+		//newcard.SetAttributes("Fire Dragon", 5, 4, 3, el, dragon);
+		//cards.Add(newcard);
+		//Debug.Log(cards.Count);
+	}
+
+    void OnMouseDown()
     {
-        
+    	//CardShown newcard = (CardShown) cards[0];
+    	hand.AddCard("Fire Dragon", 5, 4, 3, el, dragon);
     }
 }
