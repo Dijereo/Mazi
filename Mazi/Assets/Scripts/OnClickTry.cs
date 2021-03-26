@@ -10,7 +10,8 @@ public class OnClickTry : MonoBehaviour
 
     void OnMouseDown()
     {
-        selector.selectCube(this);
+        //selector.selectCube(this);
+        Debug.Log("hello");
     }
 
     public void SetSelectMaterial()

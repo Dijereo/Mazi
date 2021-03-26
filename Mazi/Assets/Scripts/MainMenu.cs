@@ -8,17 +8,17 @@ public class MainMenu : MonoBehaviour
 	private string username;
 	private string password;
 
-	public void signOut() {
-        SceneManager.LoadScene(2);
+	public void SignOut() {
+        SceneManager.LoadScene("SignInScene");
 	}
 
-    public void manageDecks ()
+    public void ManageDecks()
     {
-    	SceneManager.LoadScene(1);
+    	SceneManager.LoadScene("DecksScene");
     }
 
-    public void searchGame()
+    public void SearchGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("SearchGameScene");
     }
 }

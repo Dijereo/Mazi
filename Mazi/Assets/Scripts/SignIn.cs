@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+
+
 
 public class SignIn : MonoBehaviour
 {
-	public Text usernameText;
-	public Text passwordText;
+	public TMP_Text usernameText;
+	public TMP_Text passwordText;
 
     //readonly string signUpURL = "http://127.0.0.1:8000/api/accounts/signup/";
     readonly string signInURL = "http://127.0.0.1:8000/api/api-token-auth/";
@@ -30,13 +33,12 @@ public class SignIn : MonoBehaviour
     	}
     	else {
     		string token = www.downloadHandler.text;
-    		SceneManager.LoadScene(0);
+    		SceneManager.LoadScene("MainMenuScene");
     	}
     }
 
 	public void backToMainMenu()
 	{
-		Debug.Log("Hello");
-    	SceneManager.LoadScene(0);
+    	SceneManager.LoadScene("MainMenuScene");
 	}
 }
