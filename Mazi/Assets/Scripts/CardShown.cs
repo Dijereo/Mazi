@@ -53,8 +53,6 @@ public class CardShown : MonoBehaviour
 
 	void OnMouseDown()
 	{
-		Debug.Log("Hello");
-		game.opponentHealthText.text = "15";
 		if (isAttacker)
 		{
 			game.SetAttacker(this);
