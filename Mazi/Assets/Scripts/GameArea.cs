@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class GameArea : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	public float CardYPos;
+	public float CardZPos;
+    public CombatCard CardPrefab;
+    public Gameplay Game;
+    private ArrayList Cards = new ArrayList();
+
+    public void AddCard(CardStats card)
     {
-        
+    	CombatCard newcard = Instantiate(CardPrefab) as CombatCard;
+    	newcard.Game = Game;
+        newcard.Stats = card;
+        newcard.InitializeStats();
+    	Cards.Add(newcard);
+    	RearrangeCards();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void RearrangeCards() {
+    	float width = 1.1f * Cards.Count - 0.1f;
+    	for (int i = 0; i < Cards.Count; i++)
+    	{
+    		CombatCard card = (CombatCard) Cards[i];
+    		card.transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
+    	}
     }
 }

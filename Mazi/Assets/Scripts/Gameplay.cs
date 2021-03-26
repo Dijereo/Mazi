@@ -5,29 +5,15 @@ using TMPro;
 
 public class Gameplay : MonoBehaviour
 {
-	public TMP_Text playerHealthText;
-	public GameDeck playerDeck;
-	public GameHand playerHand;
-	public GameArea playerArea;
-	public TMP_Text opponentHealthText;
-	public GameDeck opponentDeck;
-	public GameHand opponentHand;
-	public GameArea opponentArea;
-	private CardShown attaker;
-	private CardShown defender;
-
-	public void SetAttacker(CardShown a)
-	{
-		attaker = a;
-	}
-
-	public void SetDefender(CardShown d)
-	{
-		defender = d;
-	}
+	public int PlayerHealth = 20;
+	public TMP_Text PlayerHealthText;
+	public int OpponentHealth = 20;
+	public TMP_Text OpponentHealthText;
+	public AttackerCard Attacker;
+	public DefenderCard Defender;
 
 	public void Attack()
 	{
-		Debug.Log("Hello");
+		// TODO
 	}
 }

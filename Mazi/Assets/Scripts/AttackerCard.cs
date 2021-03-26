@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackerCard : MonoBehaviour
+public class AttackerCard : CombatCard
 {
-	public Gameplay game;
-
 	void OnMouseDown()
 	{
-		//game.SetAttacker(this);
+		Game.Attacker = this;
 	}
 }

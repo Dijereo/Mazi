@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenderCard : MonoBehaviour
+public class DefenderCard : CombatCard
 {
-	public Gameplay game;
-
 	void OnMouseDown()
 	{
-		//game.SetDefender(this);
-		//game.Attack();
+		Game.Defender = this;
+		Game.Attack();
 	}
 }
