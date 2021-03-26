@@ -461,7 +461,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardYPos: 1.5
   CardZPos: -1
-  CardPrefab: {fileID: 538748230668777699, guid: cbee25b2e4da4c749baaaf969e4164be, type: 3}
+  CardPrefab: {fileID: 265840247218979239, guid: cbee25b2e4da4c749baaaf969e4164be, type: 3}
+  Game: {fileID: 1923332904}
 --- !u!4 &1043614435
 Transform:
   m_ObjectHideFlags: 0
@@ -1067,6 +1068,56 @@ MonoBehaviour:
   Hand: {fileID: 1672000010}
   CardElement: {fileID: 21300000, guid: 19b54bab4cf606040b7ee84899092760, type: 3}
   CardSprite: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
+--- !u!1 &1923332903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923332905}
+  - component: {fileID: 1923332904}
+  m_Layer: 0
+  m_Name: GameScriptObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1923332904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923332903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0716d105251a0bb4282795a4702451b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerHealth: 20
+  PlayerHealthText: {fileID: 1275586981}
+  OpponentHealth: 20
+  OpponentHealthText: {fileID: 1441166408}
+  Attacker: {fileID: 0}
+  Defender: {fileID: 0}
+  AttackAnimation: {fileID: 5838268142182639401, guid: f4d272de22e1a2647acc660f423b4657, type: 3}
+--- !u!4 &1923332905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923332903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976288563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,7 +1149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardYPos: -1.5
   CardZPos: -1
-  CardPrefab: {fileID: 3504617939268074762, guid: c3ff478baf89a774f999195eb5310047, type: 3}
+  CardPrefab: {fileID: 6214530475506124666, guid: c3ff478baf89a774f999195eb5310047, type: 3}
+  Game: {fileID: 1923332904}
 --- !u!4 &1976288565
 Transform:
   m_ObjectHideFlags: 0

@@ -11,9 +11,12 @@ public class Gameplay : MonoBehaviour
 	public TMP_Text OpponentHealthText;
 	public AttackerCard Attacker;
 	public DefenderCard Defender;
+	public Fireball AttackAnimation;
 
 	public void Attack()
 	{
-		// TODO
+		Fireball attackAnimation = Instantiate(AttackAnimation) as Fireball;
+		attackAnimation.transform.position = Attacker.transform.position + (new Vector3(0, 0, -1));
+		attackAnimation.target = Defender.transform.position + (new Vector3(0, 0, -1));
 	}
 }

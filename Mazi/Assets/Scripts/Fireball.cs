@@ -16,6 +16,7 @@ public class Fireball : MonoBehaviour
         {
         	transform.position = target;
         	animator.SetBool("HitTarget", true);
+            Destroy(this.gameObject, 1f);
         }
         else 
         {
