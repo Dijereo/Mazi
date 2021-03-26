@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameDeck : MonoBehaviour
 {
-	private ArrayList cards = new ArrayList();
-	public Sprite el;
-	public Sprite dragon;
-	public GameHand hand;
+	private ArrayList Cards = new ArrayList();
+	public GameHand Hand;
+	public Sprite CardElement;
+	public Sprite CardSprite;
 
-	void Start()
+	public void InitializeCards(ArrayList cards)
 	{
-		//CardShown newcard = new CardShown();
-		//newcard.SetAttributes("Fire Dragon", 5, 4, 3, el, dragon);
-		//cards.Add(newcard);
-		//Debug.Log(cards.Count);
+		Cards = cards;
 	}
 
     void OnMouseDown()
     {
-    	//CardShown newcard = (CardShown) cards[0];
-    	hand.AddCard("Fire Dragon", 5, 4, 3, el, dragon);
+    	CardStats card = new CardStats("Dragon", 5, 4, 3, CardElement, CardSprite);
+    	Hand.AddCard(card);
     }
 }
