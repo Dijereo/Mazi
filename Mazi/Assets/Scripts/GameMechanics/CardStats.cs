@@ -8,11 +8,11 @@ public class CardStats
 	public int Attack;
 	public int Defense;
 	public int Energy;
-	public Sprite CardElement;
+	public GameElement CardElement;
 	public Sprite CardSprite;
 
 	public CardStats(string cardName, int attack, int defense, int energy,
-		Sprite cardElement, Sprite cardSprite)
+		GameElement cardElement, Sprite cardSprite)
 	{
 		CardName = cardName;
 		Attack = attack;

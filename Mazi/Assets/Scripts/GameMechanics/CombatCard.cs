@@ -5,7 +5,7 @@ using UnityEngine;
 public class CombatCard : MonoBehaviour
 {
 	public CardStats Stats;
-	public Gameplay Game;
+	public GamePlay Game;
 	public CardView Prefab;
 
 	public void InitializeStats()

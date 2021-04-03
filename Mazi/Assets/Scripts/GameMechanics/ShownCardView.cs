@@ -20,7 +20,7 @@ public class ShownCardView : CardView
     	attackText.text = Stats.Attack.ToString();
 		defenseText.text = Stats.Defense.ToString();
 		energyText.text = Stats.Energy.ToString();
-		elementImage.sprite = Stats.CardElement;
+		elementImage.sprite = Stats.CardElement.ElementSprite;
 		cardImage.sprite = Stats.CardSprite;
     }
 }

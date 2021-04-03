@@ -7,7 +7,7 @@ public class GameArea : MonoBehaviour
 	public float CardYPos;
 	public float CardZPos;
     public CombatCard CardPrefab;
-    public Gameplay Game;
+    public GamePlay Game;
     private ArrayList Cards = new ArrayList();
 
     public void AddCard(CardStats card)

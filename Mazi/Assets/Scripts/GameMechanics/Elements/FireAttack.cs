@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class FireAttack : MonoBehaviour
 {
 	public Animator animator;
 	public Vector3 target;
@@ -12,7 +12,7 @@ public class Fireball : MonoBehaviour
     {
         Vector3 direction = target - transform.position;
 
-        if (direction.magnitude < Time.deltaTime)
+        if (direction.magnitude < speed * Time.deltaTime)
         {
         	transform.position = target;
         	animator.SetBool("HitTarget", true);

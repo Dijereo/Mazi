@@ -7,7 +7,7 @@ public class GameDeck : MonoBehaviour
 {
 	private ArrayList Cards = new ArrayList();
 	public GameHand Hand;
-	public Sprite CardElement;
+	public GameElement CardElement;
 	public Sprite CardSprite;
 
 	public void InitializeCards(ArrayList cards)
