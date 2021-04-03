@@ -15,9 +15,17 @@ public class GameArea : MonoBehaviour
     	CombatCard newcard = Instantiate(CardPrefab) as CombatCard;
     	newcard.Game = Game;
         newcard.Card = card;
+        newcard.Area = this;
         newcard.InitializeData();
     	Cards.Add(newcard);
     	RearrangeCards();
+    }
+
+    public void RemoveCard(CombatCard card)
+    {
+        Cards.Remove(card);
+        RearrangeCards();
+        Destroy(card.gameObject);
     }
 
     private void RearrangeCards() {
