@@ -17,7 +17,7 @@ public class GameDeck : MonoBehaviour
 
     void OnMouseDown()
     {
-    	CardStats card = new CardStats("Dragon", 5, 4, 3, CardElement, CardSprite);
+    	CardData card = new CardData("Dragon", 5, 4, 3, CardElement, CardSprite);
     	Hand.AddCard(card);
     }
 }

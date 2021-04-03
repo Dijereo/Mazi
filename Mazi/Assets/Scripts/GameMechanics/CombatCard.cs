@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CombatCard : MonoBehaviour
 {
-	public CardStats Stats;
+	public CardData Card;
 	public GamePlay Game;
 	public CardView Prefab;
 
-	public void InitializeStats()
+	public void InitializeData()
 	{
-		Prefab.Stats = Stats;
-		Prefab.InitializeStats();
+		Prefab.Card = Card;
+		Prefab.InitializeData();
 	}
 }

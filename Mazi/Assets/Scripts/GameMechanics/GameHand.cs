@@ -11,14 +11,14 @@ public class GameHand : MonoBehaviour
     public GameArea CardPlayArea;
     private ArrayList Cards = new ArrayList();
 
-    public void AddCard(CardStats card)
+    public void AddCard(CardData card)
     {
     	CardView newcard = Instantiate(CardPrefab) as CardView;
-        newcard.Stats = card;
-    	newcard.InitializeStats();
+        newcard.Card = card;
+    	newcard.InitializeData();
         PlayableCard playcard = newcard.gameObject.AddComponent<PlayableCard>();
         playcard.Hand = this;
-        playcard.Stats = card;
+        playcard.Card = card;
     	Cards.Add(playcard);
     	RearrangeCards();
     }
@@ -36,7 +36,7 @@ public class GameHand : MonoBehaviour
     {
         Cards.Remove(card);
         RearrangeCards();
-        CardPlayArea.AddCard(card.Stats);
+        CardPlayArea.AddCard(card.Card);
         Destroy(card.gameObject);
     }
 }

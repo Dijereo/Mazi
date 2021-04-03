@@ -10,12 +10,12 @@ public class GameArea : MonoBehaviour
     public GamePlay Game;
     private ArrayList Cards = new ArrayList();
 
-    public void AddCard(CardStats card)
+    public void AddCard(CardData card)
     {
     	CombatCard newcard = Instantiate(CardPrefab) as CombatCard;
     	newcard.Game = Game;
-        newcard.Stats = card;
-        newcard.InitializeStats();
+        newcard.Card = card;
+        newcard.InitializeData();
     	Cards.Add(newcard);
     	RearrangeCards();
     }

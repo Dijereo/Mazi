@@ -19,6 +19,8 @@ public class GamePlay : MonoBehaviour
 		{
 			ElementAttack attackAnimation = Instantiate(AttackElement) as ElementAttack;
 			attackAnimation.InitializeAttack(Attacker.transform.position, Defender.transform.position);
+			Attacker = null;
+			Defender = null;
 		}
 	}
 }

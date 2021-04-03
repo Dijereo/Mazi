@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardStats
+public class CardData
 {
 	public string CardName;
 	public int Attack;
@@ -11,7 +11,7 @@ public class CardStats
 	public GameElement CardElement;
 	public Sprite CardSprite;
 
-	public CardStats(string cardName, int attack, int defense, int energy,
+	public CardData(string cardName, int attack, int defense, int energy,
 		GameElement cardElement, Sprite cardSprite)
 	{
 		CardName = cardName;
