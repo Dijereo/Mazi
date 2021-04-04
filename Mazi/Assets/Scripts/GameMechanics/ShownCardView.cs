@@ -14,13 +14,13 @@ public class ShownCardView : CardView
 	public Image elementImage;
 	public Image cardImage;
 
-    public override void InitializeStats()
+    public override void InitializeData()
     {
-    	nameText.text = Stats.CardName;
-    	attackText.text = Stats.Attack.ToString();
-		defenseText.text = Stats.Defense.ToString();
-		energyText.text = Stats.Energy.ToString();
-		elementImage.sprite = Stats.CardElement;
-		cardImage.sprite = Stats.CardSprite;
+    	nameText.text = Card.CardName;
+    	attackText.text = Card.Attack.ToString();
+		defenseText.text = Card.Defense.ToString();
+		energyText.text = Card.Energy.ToString();
+		elementImage.sprite = Card.CardElement.ElementSprite;
+		cardImage.sprite = Card.CardSprite;
     }
 }

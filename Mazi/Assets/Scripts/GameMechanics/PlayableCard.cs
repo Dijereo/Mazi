@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayableCard : MonoBehaviour
 {
 	public GameHand Hand;
-	public CardStats Stats;
+	public CardData Card;
 
 	void OnMouseDown()
 	{

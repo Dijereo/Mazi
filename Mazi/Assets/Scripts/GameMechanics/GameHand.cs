@@ -9,16 +9,16 @@ public class GameHand : MonoBehaviour
 	public float CardZPos;
     public CardView CardPrefab;
     public GameArea CardPlayArea;
-    private ArrayList Cards = new ArrayList();
+    private List<PlayableCard> Cards = new List<PlayableCard>();
 
-    public void AddCard(CardStats card)
+    public void AddCard(CardData card)
     {
     	CardView newcard = Instantiate(CardPrefab) as CardView;
-        newcard.Stats = card;
-    	newcard.InitializeStats();
+        newcard.Card = card;
+    	newcard.InitializeData();
         PlayableCard playcard = newcard.gameObject.AddComponent<PlayableCard>();
         playcard.Hand = this;
-        playcard.Stats = card;
+        playcard.Card = card;
     	Cards.Add(playcard);
     	RearrangeCards();
     }
@@ -27,8 +27,7 @@ public class GameHand : MonoBehaviour
     	float width = 1.1f * Cards.Count - 0.1f;
     	for (int i = 0; i < Cards.Count; i++)
     	{
-    		PlayableCard card = (PlayableCard) Cards[i];
-    		card.transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
+    		Cards[i].transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
     	}
     }
 
@@ -36,7 +35,7 @@ public class GameHand : MonoBehaviour
     {
         Cards.Remove(card);
         RearrangeCards();
-        CardPlayArea.AddCard(card.Stats);
+        CardPlayArea.AddCard(card.Card);
         Destroy(card.gameObject);
     }
 }

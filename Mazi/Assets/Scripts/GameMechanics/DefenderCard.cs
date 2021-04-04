@@ -6,7 +6,7 @@ public class DefenderCard : CombatCard
 {
 	void OnMouseDown()
 	{
-		Game.Defender = this;
-		Game.Attack();
+		controller.Defender = this;
+		controller.MakeSelectedAttack();
 	}
 }

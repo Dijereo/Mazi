@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CardView : MonoBehaviour
 {
-	public CardStats Stats;
+	public CardData Card;
 
 	void Start()
 	{
-		InitializeStats();
+		InitializeData();
 	}
 
-    public virtual void InitializeStats()
+    public virtual void InitializeData()
     {
 
     }

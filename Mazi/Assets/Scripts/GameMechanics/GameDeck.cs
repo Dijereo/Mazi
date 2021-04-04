@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class GameDeck : MonoBehaviour
 {
-	private ArrayList Cards = new ArrayList();
+	private List<CardData> Cards = new List<CardData>();
 	public GameHand Hand;
-	public Sprite CardElement;
+	public GameElement CardElement;
 	public Sprite CardSprite;
 
-	public void InitializeCards(ArrayList cards)
+	public void InitializeCards(List<CardData> cards)
 	{
 		Cards = cards;
 	}
 
     void OnMouseDown()
     {
-    	CardStats card = new CardStats("Dragon", 5, 4, 3, CardElement, CardSprite);
+    	CardData card = new CardData("Dragon", 5, 4, 3, CardElement, CardSprite);
     	Hand.AddCard(card);
     }
 }
