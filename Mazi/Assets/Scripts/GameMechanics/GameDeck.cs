@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GameDeck : MonoBehaviour
 {
-	private ArrayList Cards = new ArrayList();
+	private List<CardData> Cards = new List<CardData>();
 	public GameHand Hand;
 	public GameElement CardElement;
 	public Sprite CardSprite;
 
-	public void InitializeCards(ArrayList cards)
+	public void InitializeCards(List<CardData> cards)
 	{
 		Cards = cards;
 	}

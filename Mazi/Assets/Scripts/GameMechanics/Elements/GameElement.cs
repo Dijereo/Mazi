@@ -8,6 +8,8 @@ public class GameElement : ScriptableObject
 	public string ElementName;
 	public Sprite ElementSprite;
 	public ElementAttack AttackAnimationPrefab;
+	public List<GameElement> vulnerabilities;
+	public List<GameElement> resistances;
 
 	public bool IsVulnerableTo(GameElement attacker)
 	{

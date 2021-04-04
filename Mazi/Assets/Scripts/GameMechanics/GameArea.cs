@@ -8,7 +8,7 @@ public class GameArea : MonoBehaviour
 	public float CardZPos;
     public CombatCard CardPrefab;
     public GamePlay Game;
-    private ArrayList Cards = new ArrayList();
+    private List<CombatCard> Cards = new List<CombatCard>();
 
     public void AddCard(CardData card)
     {
@@ -32,8 +32,7 @@ public class GameArea : MonoBehaviour
     	float width = 1.1f * Cards.Count - 0.1f;
     	for (int i = 0; i < Cards.Count; i++)
     	{
-    		CombatCard card = (CombatCard) Cards[i];
-    		card.transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
+    		Cards[i].transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
     	}
     }
 }

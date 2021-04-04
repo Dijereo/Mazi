@@ -9,7 +9,7 @@ public class GameHand : MonoBehaviour
 	public float CardZPos;
     public CardView CardPrefab;
     public GameArea CardPlayArea;
-    private ArrayList Cards = new ArrayList();
+    private List<PlayableCard> Cards = new List<PlayableCard>();
 
     public void AddCard(CardData card)
     {
@@ -27,8 +27,7 @@ public class GameHand : MonoBehaviour
     	float width = 1.1f * Cards.Count - 0.1f;
     	for (int i = 0; i < Cards.Count; i++)
     	{
-    		PlayableCard card = (PlayableCard) Cards[i];
-    		card.transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
+    		Cards[i].transform.position = new Vector3(i * 1.1f - width / 2f, CardYPos, CardZPos);
     	}
     }
 
