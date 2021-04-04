@@ -5,9 +5,10 @@ using UnityEngine;
 public class CombatCard : MonoBehaviour
 {
 	public CardData Card;
-	public GamePlay Game;
 	public CardView Prefab;
 	public GameArea Area;
+	public GamePlayer Player;
+	public InputController controller;
 
 	public void InitializeData()
 	{

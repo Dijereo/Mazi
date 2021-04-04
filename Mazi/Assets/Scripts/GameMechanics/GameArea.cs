@@ -7,15 +7,17 @@ public class GameArea : MonoBehaviour
 	public float CardYPos;
 	public float CardZPos;
     public CombatCard CardPrefab;
-    public GamePlay Game;
+    public GamePlayer Player;
+    public InputController controller;
     private List<CombatCard> Cards = new List<CombatCard>();
 
     public void AddCard(CardData card)
     {
     	CombatCard newcard = Instantiate(CardPrefab) as CombatCard;
-    	newcard.Game = Game;
         newcard.Card = card;
         newcard.Area = this;
+        newcard.Player = Player;
+        newcard.controller = controller;
         newcard.InitializeData();
     	Cards.Add(newcard);
     	RearrangeCards();

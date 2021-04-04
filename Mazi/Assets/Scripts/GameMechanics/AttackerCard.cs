@@ -6,6 +6,6 @@ public class AttackerCard : CombatCard
 {
 	void OnMouseDown()
 	{
-		Game.Attacker = this;
+		controller.Attacker = this;
 	}
 }

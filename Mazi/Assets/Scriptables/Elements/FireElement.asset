@@ -15,3 +15,6 @@ MonoBehaviour:
   ElementName: Fire
   ElementSprite: {fileID: 21300000, guid: 19b54bab4cf606040b7ee84899092760, type: 3}
   AttackAnimationPrefab: {fileID: 3706959689617609137, guid: 9357cedc13143974e8afa17b947ba587, type: 3}
+  vulnerabilities: []
+  resistances:
+  - {fileID: 11400000}
