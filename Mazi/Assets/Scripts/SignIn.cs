@@ -7,14 +7,13 @@ using UnityEngine.UI;
 using TMPro;
 
 
-
 public class SignIn : MonoBehaviour
 {
 	public TMP_Text usernameText;
 	public TMP_Text passwordText;
 
-    //readonly string signUpURL = "http://127.0.0.1:8000/api/accounts/signup/";
-    readonly string signInURL = "http://127.0.0.1:8000/api/api-token-auth/";
+    readonly string signUpURL = "http://127.0.0.1:8000/api/accounts/signup/";
+    readonly string signInURL = "http://127.0.0.1:8000/api/accounts/signin/";
 
     public void signIn() {
     	StartCoroutine(signInRequest(usernameText.text, passwordText.text));
@@ -32,7 +31,10 @@ public class SignIn : MonoBehaviour
     	if (www.isNetworkError || www.isHttpError) {
     	}
     	else {
-    		string token = www.downloadHandler.text;
+    		string result = www.downloadHandler.text;
+            AuthToken.SaveToFile(result);
+            string token = AuthToken.LoadFromFile();
+            Debug.Log(token);
     		SceneManager.LoadScene("MainMenuScene");
     	}
     }

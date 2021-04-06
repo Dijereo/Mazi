@@ -42,4 +42,4 @@ class PlayerAccountSerializer(serializers.ModelSerializer):
 class SignInSerializer(serializers.Serializer):
 	password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 	username = serializers.CharField(max_length=32)
-	email = serializers.CharField(style={'input_type': 'email'})
+	# email = serializers.CharField(style={'input_type': 'email'})

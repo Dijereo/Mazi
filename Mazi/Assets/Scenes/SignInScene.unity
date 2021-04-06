@@ -1124,6 +1124,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: SignInButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2481677566898715904}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: signIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SignIn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470866189221954164, guid: 17f9090237e529e44850525198e276b6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4470866189221954165, guid: 17f9090237e529e44850525198e276b6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

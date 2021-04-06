@@ -7,6 +7,6 @@ from . import views
 app_name = 'matchmaker'
 
 urlpatterns = [
-    path('accounts/signup', views.SignUpView.as_view(), name='signup'),
-    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+    path('accounts/signup/', views.SignUpView.as_view(), name='signup'),
+    path('accounts/signin/', views.SignInView.as_view(), name='signin'),
 ]
