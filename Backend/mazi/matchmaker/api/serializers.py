@@ -43,3 +43,8 @@ class SignInSerializer(serializers.Serializer):
 	password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 	username = serializers.CharField(max_length=32)
 	# email = serializers.CharField(style={'input_type': 'email'})
+
+
+class SearchGameSerializer(serializers.Serializer):
+	username = serializers.CharField(max_length=32)
+	deckid = serializers.IntegerField()

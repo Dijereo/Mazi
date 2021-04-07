@@ -1,78 +1,88 @@
+import secrets
 import socket
 import threading
 
 
 META_LENGTH = 8
-HANDSHAKE_MESSAGE = 'HELLO'
-DISCONNECT_MESSAGE = 'DISCONNECT'
 
 
-class ClientConnection:
+class AuthConnection:
 	connectionid = 0
 
-	def __init__(self, clientsocket, address, server):
-		self.conn_id = self.get_and_set_next_id()
-		self.client = clientsocket
+	def __init__(self, authsocket, address, serverctx):
+		self.conn_id = self.next_id()
+		self.authsocket = authsocket
 		self.address = address
 		self.connected = True
-		self.thread = threading.Thread(target=self.handle_client)
-		self.server = server
+		self.thread = threading.Thread(target=self.handle)
+		self.serverctx = serverctx
+		self.key = secrets.token_urlsafe(32)
+		self.state = 0
 
-	def start_and_run(self):
+	def start(self):
 		self.thread.start()
 
-	def handle_client(self):
+	def handle(self):
 		while self.connected:
-			header = self.client.recv(META_LENGTH).decode('utf-8')
-			if not header:
-				continue
-			msg_length = int(header)
-			msg = self.client.recv(msg_length).decode('utf-8')
-			if msg == HANDSHAKE_MESSAGE:
-				self.client.send(b'Hi')
-			if msg == DISCONNECT_MESSAGE:
-				self.connected = False
-		self.client.close()
-		self.server.disconnect_client(self)
+			msg = self.recv()
+			if msg is not None:
+				self.interpret(msg)
+		self.authsocket.close()
+		self.serverctx.disconnect(self)
+
+	def interpret(self, msg):
+		if self.state == 0:
+			self.username = msg
+			self.state = 1
+			self.send(self.key)
+
+	def recv(self):
+		meta_len = self.authsocket.recv(META_LENGTH).decode('utf-8')
+		if not meta_len:
+			return None
+		msg_length = int(meta_len)
+		msg = self.authsocket.recv(msg_length).decode('utf-8')
+		return msg
+
+	def send(self, msg):
+		message = msg.encode('utf-8')
+		msg_length = str(len(message)).ljust(META_LENGTH).encode('utf-8')
+		self.authsocket.send(msg_length)
+		self.authsocket.send(message)
 
 	def __eq__(self, other):
 		return type(other) is type(self) and self.conn_id == other.conn_id
 
 	def __hash__(self):
-		return 31 * hash('ClientConnection') + hash(self.conn_id)
+		return 31 * hash('AuthConnection') + hash(self.conn_id)
 
 	@classmethod
-	def get_and_set_next_id(cls):
+	def next_id(cls):
 		val = cls.connectionid
 		cls.connectionid += 1
 		return val
 
 
 class ServerContext:
-	def __init__(self):
+	def __init__(self, port):
 		self.server = socket.socket()
-		self.port = 9009
+		self.port = port
 		self.ip = socket.gethostbyname(socket.gethostname()) # 192.168.0.2
-		self.clients = set()
+		self.conns = set()
 
-	def bind_and_listen(self):
+	def start(self):
 		self.server.bind((self.ip, self.port))
 		self.server.listen()
 		while True:
-			clientsocket, address = self.server.accept()
-			new_client = ClientConnection(clientsocket, address, self)
-			self.clients.add(new_client)
-			new_client.start_and_run()
+			connsocket, address = self.server.accept()
+			newconn = AuthConnection(connsocket, address, self)
+			self.conns.add(newconn)
+			newconn.start()
 
-	def disconnect_client(self, client):
-		self.clients.remove(client)
-
-
-def main():
-	server = ServerContext()
-	server.bind_and_listen()
+	def disconnect(self, client):
+		self.conns.remove(client)
 
 
 if __name__ == '__main__':
-	main()
-	input()
+	authlistener = ServerContext(9010)
+	authlistener.start()

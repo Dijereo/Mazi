@@ -21,7 +21,7 @@ public class AuthToken
 		return JsonUtility.ToJson(this);
 	}
 
-	private static AuthToken FromJson(string json)
+	public static AuthToken FromJson(string json)
 	{
 		AuthToken atok =  new AuthToken();
 		JsonUtility.FromJsonOverwrite(json, atok);

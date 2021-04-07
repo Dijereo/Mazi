@@ -9,6 +9,7 @@ from rest_framework.authtoken.models import Token
 
 from ..models import *
 from .serializers import *
+from .matchqueue import MatchQueueConnection
 
 
 # TODO: Add statuses
@@ -37,3 +38,15 @@ class SignInView(APIView):
 			return Response({'token': f'{token.key}'})
 		else:
 			return Response(serializer.errors)
+
+
+class SearchGameView(APIView):
+	def post(self, request, format=None):
+		serializer = SearchGameSerializer(data=request.data)
+		if serializer.is_valid():
+			valid_data = serializer.validated_data
+			username = ''.join(ch for ch in valid_data['username'] if ch.isalnum())
+			user = get_object_or_404(User, username=username)
+			gametoken = MatchQueueConnection(user.username).get_game_token()
+			# deck = get_object_or_404(Deck, user=user, pk=valid_data['deckid'])
+			return Response({'token': gametoken})
