@@ -17,7 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arena_kershawn.unity
     guid: cf15103e87901124d9636a1f03ed34bc
-  -enabled: 1
+  - enabled: 1
+    path: Assets/Scenes/GameSceneDR.unity
+    guid: 92b5634bffcf4d54aa016353faf3eebc
+  - enabled: 1
     path: Assets/Scenes/SignInScene.unity
     guid: 3a58102281b1d3a47be171c47af2abda
   m_configObjects: {}

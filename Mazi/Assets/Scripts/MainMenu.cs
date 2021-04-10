@@ -4,9 +4,19 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
     readonly string searchMatchURL = "http://127.0.0.1:8000/api/games/search/";
+    public QueueConnection queueconn;
+    private bool startmatch = false;
+
+    void Update() {
+        if (startmatch) {
+            SceneManager.LoadScene("GameSceneDR");
+            startmatch = false;
+        }
+    }
 
 	public void SignOut() {
         // SceneManager.LoadScene("SignInScene");
@@ -32,9 +42,13 @@ public class MainMenu : MonoBehaviour
         else {
             string result = www.downloadHandler.text;
             AuthToken atok = AuthToken.FromJson(result);
-            string token = atok.token;
-            Debug.Log(token);
-            // SceneManager.LoadScene("MainMenuScene");
+            Debug.Log(atok.token);
+            queueconn.StartThread(atok.token);
         }
+    }
+
+    public void StartMatch()
+    {
+        startmatch = true;
     }
 }

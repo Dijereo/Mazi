@@ -1,6 +1,6 @@
 import socket
 
-from ......gameserver.socketwrapper import BaseConnection
+from ..gameserver.socketwrapper import BaseConnection
 
 SERVER = '192.168.0.2'
 PORT = 9009

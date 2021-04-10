@@ -18,19 +18,19 @@ class AuthListener(BaseListener):
 	def authorize(self, authtoken, username):
 		self.authorized[authtoken] = username
 
-	def popauthorized(authtoken):
+	def popauthorized(self, authtoken):
 		return self.authorized.pop(authtoken, None)
 
 
 class AuthConnection(BaseServerConnection):
 	def __init__(self, authsocket, address, listener):
-		super.__init__(authsocket, address, listener)
+		super().__init__(authsocket, address, listener)
 		self.authkey = secrets.token_urlsafe(32)
 
 	def handle(self):
 		username = self.recv()
-		self.listener.authorize(self.key, username)
-		self.send(self.key)
+		self.listener.authorize(self.authkey, username)
+		self.send(self.authkey)
 		super().handle()
 
 
@@ -51,7 +51,7 @@ class QueueListener(BaseListener):
 
 class QueueConnection(BaseServerConnection):
 	def __init__(self, clientsocket, address, listener):
-		super.__init__(clientsocket, address, listener)
+		super().__init__(clientsocket, address, listener)
 		self.matchfound = False
 		self.gametoken = None
 
@@ -84,12 +84,12 @@ class PlayerQueue:
 				authtoken2, username2, connection2 = self.queue.popleft()
 				gametoken = secrets.token_urlsafe(32)
 				match = Match(gametoken, authtoken1, username1, authtoken2, username2)
-				matchlistener.addmatch(match)
+				self.matchlistener.addmatch(match)
 				connection1.findmatch(gametoken)
 				connection2.findmatch(gametoken)
 			time.sleep(5)
 
-	def addclient(authtoken, username, connection):
+	def addclient(self, authtoken, username, connection):
 		self.queue.append((authtoken, username, connection))
 
 
@@ -112,7 +112,7 @@ class MatchListener(BaseListener):
 
 class MatchConnection(BaseServerConnection):
 	def __init__(self, clientsocket, address, listener):
-		super.__init__(clientsocket, address, listener)
+		super().__init__(clientsocket, address, listener)
 		self.matchinitialized = False
 		self.receiving = False
 		self.connected = True
@@ -160,7 +160,7 @@ class Match:
 			if conn is not connection:
 				conn.send(data)
 
-	def startplayer(authtoken, connection):
+	def startplayer(self, authtoken, connection):
 		if self.authtoken1 == authtoken and self.connection1 is None:
 			self.connection1 = connection
 		elif self.authtoken2 == authtoken and self.connection2 is None:

@@ -22,7 +22,7 @@ class BaseListener:
 		self.listener.listen()
 		while True:
 			client, address = self.listener.accept()
-			connection = self.createconnection(connsocket, address)
+			connection = self.createconnection(client, address)
 			self.connections.add(connection)
 			connection.start()
 
