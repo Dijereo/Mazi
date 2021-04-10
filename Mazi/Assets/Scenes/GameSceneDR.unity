@@ -696,6 +696,8 @@ MonoBehaviour:
   Hand: {fileID: 1158389389}
   CardElement: {fileID: 11400000, guid: 770a14776ffe3674190c1e2664c68507, type: 2}
   CardSprite: {fileID: 21300000, guid: 06a2f0fd5b5b9714988cd8aa15af06e6, type: 3}
+  playerOwned: 1
+  director: {fileID: 1652948692}
 --- !u!4 &1168676019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5178067356112755769, guid: 905748610e9f1d74dbde2aeccda4c7d7, type: 3}
@@ -845,7 +847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1275757447}
   m_Layer: 0
-  m_Name: GamePlayScripts
+  m_Name: GameScripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -866,6 +868,8 @@ Transform:
   - {fileID: 305869472}
   - {fileID: 707161457}
   - {fileID: 1565547221}
+  - {fileID: 1617081938}
+  - {fileID: 1652948691}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1049,6 +1053,95 @@ MonoBehaviour:
   Attacker: {fileID: 0}
   Defender: {fileID: 0}
   gameplay: {fileID: 1923332904}
+--- !u!1 &1617081936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617081938}
+  - component: {fileID: 1617081937}
+  m_Layer: 0
+  m_Name: GameConnection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1617081937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617081936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c3c3e426f012ee44a30a1d669850839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamedirector: {fileID: 1652948692}
+--- !u!4 &1617081938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617081936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1275757447}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1652948690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1652948691}
+  - component: {fileID: 1652948692}
+  m_Layer: 0
+  m_Name: NetworkDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652948691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652948690}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1275757447}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652948692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652948690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9641db35670f074b907d47df6194ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck: {fileID: 1852590825}
+  gameconnection: {fileID: 1617081937}
 --- !u!1 &1672000009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1341,8 @@ MonoBehaviour:
   Hand: {fileID: 1672000010}
   CardElement: {fileID: 11400000, guid: 770a14776ffe3674190c1e2664c68507, type: 2}
   CardSprite: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
+  playerOwned: 0
+  director: {fileID: 1652948692}
 --- !u!4 &1852590828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5178067356112755769, guid: 905748610e9f1d74dbde2aeccda4c7d7, type: 3}

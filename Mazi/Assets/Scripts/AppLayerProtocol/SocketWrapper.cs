@@ -27,24 +27,34 @@ public class SocketWrapper
 
 	public void Send(string msg)
 	{
-		byte[] msgbytes = Encoding.ASCII.GetBytes(msg);
-		byte[] msglen = Encoding.ASCII.GetBytes(msgbytes.Length.ToString());
-		int metalen = socket.Send(msglen);
-		int bytessent = socket.Send(msgbytes);
+        UTF8Encoding utf8 = new UTF8Encoding();
+        byte[] msgAsBytes = utf8.GetBytes(msg);
+		byte[] msgLenAsBytes = utf8.GetBytes(msgAsBytes.Length.ToString());
+        byte[] msgLenAsBytesPadded = new byte[] {32, 32, 32, 32, 32, 32, 32, 32};
+        int difference = msgLenAsBytesPadded.Length - msgLenAsBytes.Length;
+        for (int i = 0; i < msgLenAsBytes.Length; i++)
+        {
+            msgLenAsBytesPadded[difference + i] = msgLenAsBytes[i];
+        }
+		Debug.Log("MSGLEN\n" + msgAsBytes.Length.ToString());
+		int metalen = socket.Send(msgLenAsBytesPadded);
+		Debug.Log("MSG\n" + msgAsBytes);
+		int bytessent = socket.Send(msgAsBytes);
 	}
 
 	public string Recv()
 	{
+        UTF8Encoding utf8 = new UTF8Encoding();
 		byte[] msglenbytes = new byte[META_LENGTH];
 		int lenbytesrecv = socket.Receive(msglenbytes);
 		while (lenbytesrecv == 0)
 		{
 			lenbytesrecv = socket.Receive(msglenbytes);
 		}
-		int msglen = Int32.Parse(Encoding.ASCII.GetString(msglenbytes, 0, lenbytesrecv));
+		int msglen = Int32.Parse(utf8.GetString(msglenbytes, 0, lenbytesrecv));
 		byte[] msgbytes = new byte[msglen];
 		int msglenrecv = socket.Receive(msgbytes);
-		return Encoding.ASCII.GetString(msgbytes, 0, msglenrecv);
+		return utf8.GetString(msgbytes, 0, msglenrecv);
 	}
 
 	public void Close()

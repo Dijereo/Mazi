@@ -39,9 +39,13 @@ class BaseConnection:
 
 	def recv(self):
 		msglength = self.connsocket.recv(META_LENGTH).decode('utf-8')
-		while not msglength:
+		print(f'msglen: {msglength}')
+		while len(msglength) == 0:
 			msglength = self.connsocket.recv(META_LENGTH).decode('utf-8')
-		return self.connsocket.recv(int(msglength)).decode('utf-8')
+			print(f'msglen: {msglength}')
+		msg = self.connsocket.recv(int(msglength)).decode('utf-8')
+		print(f'msg: {msg}')
+		return msg
 
 	def send(self, msg):
 		message = msg.encode('utf-8')

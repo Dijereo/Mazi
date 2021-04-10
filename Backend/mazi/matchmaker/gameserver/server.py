@@ -125,7 +125,7 @@ class MatchConnection(BaseServerConnection):
 			time.sleep(1)
 		self.send('INITIALIZE')
 		self.send(self.gamedata)
-		self.connsocket.settimeout(60)
+		self.connsocket.settimeout(600)
 		while self.connected:
 			if self.receiving:
 				try:
@@ -156,9 +156,18 @@ class Match:
 		self.turn = 1
 
 	def command(self, data, connection):
-		for conn in [self.connection1, self.connection2]:
-			if conn is not connection:
-				conn.send(data)
+		otherconn = self.connection2 if connection is self.connection1 else self.connection1
+		if data == 'WIN':
+			otherconn.send('LOSE')
+			connection.connected = False
+			otherconn.connected = False
+		elif data == 'ENDTURN':
+			otherconn.send('PLAY')
+			otherconn.receiving = True
+			connection.receiving = False
+		else:
+			otherconn.send(data)
+
 
 	def startplayer(self, authtoken, connection):
 		if self.authtoken1 == authtoken and self.connection1 is None:
@@ -168,6 +177,8 @@ class Match:
 		if self.connection1 is not None and self.connection2 is not None:
 			self.connection1.initializematch(self, self.username2)
 			self.connection2.initializematch(self, self.username1)
+			self.connection1.send('PLAY');
+			self.connection1.receiving = True
 
 
 def main():
