@@ -9,7 +9,7 @@ from rest_framework.authtoken.models import Token
 
 from ..models import *
 from .serializers import *
-from .matchqueue import MatchQueueConnection
+from .backendconnection import BackendConnection
 
 
 # TODO: Add statuses
@@ -47,6 +47,6 @@ class SearchGameView(APIView):
 			valid_data = serializer.validated_data
 			username = ''.join(ch for ch in valid_data['username'] if ch.isalnum())
 			user = get_object_or_404(User, username=username)
-			gametoken = MatchQueueConnection(user.username).get_game_token()
+			authtoken = BackendConnection(user.username).getauthtoken()
 			# deck = get_object_or_404(Deck, user=user, pk=valid_data['deckid'])
-			return Response({'token': gametoken})
+			return Response({'token': authtoken})
