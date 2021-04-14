@@ -18,7 +18,7 @@ class PlayerAccount(models.Model):
 	ranking = models.CharField(max_length=20, choices=RANKINGS, default='unranked')
 
 	def __str__(self):
-		return self.username
+		return f'{self.player} {self.ranking}'
 
 
 class Deck(models.Model):

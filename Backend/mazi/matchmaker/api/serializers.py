@@ -17,6 +17,8 @@ class CardOwnedSerializer(serializers.ModelSerializer):
 
 
 class CardInstanceSerializer(serializers.ModelSerializer):
+	card = CardOwnedSerializer()
+	
 	class Meta:
 		model = CardInstance
 		fields = ['card']
@@ -36,7 +38,7 @@ class PlayerAccountSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = PlayerAccount
-		fields = ['username', 'rating', 'cards', 'decks']
+		fields = ['rating', 'cards', 'decks']
 
 
 class SignInSerializer(serializers.Serializer):
@@ -47,4 +49,8 @@ class SignInSerializer(serializers.Serializer):
 
 class SearchGameSerializer(serializers.Serializer):
 	username = serializers.CharField(max_length=32)
+	deckid = serializers.IntegerField()
+
+
+class GetDeckRequestSerializer(serializers.Serializer):
 	deckid = serializers.IntegerField()
