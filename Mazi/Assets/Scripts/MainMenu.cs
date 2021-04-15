@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
 
     public void ManageDecks()
     {
-    	SceneManager.LoadScene("DecksScene");
+    	SceneManager.LoadScene("DecksScene2");
     }
 
     public void SearchGame() {
