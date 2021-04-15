@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     }
 
 	public void SignOut() {
-        // SceneManager.LoadScene("SignInScene");
+        SceneManager.LoadScene("SignInScene");
 	}
 
     public void ManageDecks()

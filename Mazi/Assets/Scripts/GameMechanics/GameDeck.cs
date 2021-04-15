@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Random=System.Random;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,19 +12,26 @@ public class GameDeck : MonoBehaviour
 	public Sprite CardSprite;
 	public bool playerOwned;
 	public GameNetworkDirector director;
+	public CardFactory cardFactory;
+	private Random rand = new Random();
 
 	public void InitializeCards(List<CardData> cards)
 	{
 		Cards = cards;
 	}
 
-	public void DrawCard()
+	public void DrawCard(int cardEnum)
 	{
-    	CardData card = new CardData("Dragon", 5, 4, 3, CardElement, CardSprite);
+		CardData card;
+		if (cardEnum == 0)
+		{
+			cardEnum = rand.Next(1, 5);
+		}
+		card = cardFactory.CreateCard(cardEnum);
     	Hand.AddCard(card);
     	if (playerOwned)
     	{
-    		director.SendCommand("DRAWCARD");
+    		director.SendCommand("DRAWCARD " + cardEnum.ToString());
     	}
 	}
 
@@ -31,7 +39,7 @@ public class GameDeck : MonoBehaviour
     {
     	if (playerOwned)
     	{
-    		DrawCard();
+    		DrawCard(0);
     	}
     }
 }

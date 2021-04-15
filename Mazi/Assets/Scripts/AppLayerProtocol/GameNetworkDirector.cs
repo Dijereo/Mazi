@@ -31,7 +31,8 @@ public class GameNetworkDirector : MonoBehaviour
     	string[] data = commands.Dequeue().Split(' ');
     	if (data[0] == "DRAWCARD")
     	{
-    		opponentDeck.DrawCard();
+            int cardEnum = Int32.Parse(data[1]);
+    		opponentDeck.DrawCard(cardEnum);
     	}
     	else if (data[0] == "PLAYCARD")
     	{
