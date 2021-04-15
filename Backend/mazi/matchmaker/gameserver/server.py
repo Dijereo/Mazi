@@ -157,8 +157,8 @@ class Match:
 
 	def command(self, data, connection):
 		otherconn = self.connection2 if connection is self.connection1 else self.connection1
-		if data == 'WIN':
-			otherconn.send('LOSE')
+		if data == 'LOSE':
+			# otherconn.send('LOSE')
 			connection.connected = False
 			otherconn.connected = False
 		elif data == 'ENDTURN':

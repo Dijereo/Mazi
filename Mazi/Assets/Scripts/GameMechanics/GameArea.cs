@@ -9,7 +9,7 @@ public class GameArea : MonoBehaviour
     public CombatCard CardPrefab;
     public GamePlayer Player;
     public InputController controller;
-    private List<CombatCard> Cards = new List<CombatCard>();
+    public List<CombatCard> Cards = new List<CombatCard>();
 
     public void AddCard(CardData card)
     {

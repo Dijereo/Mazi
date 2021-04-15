@@ -9,7 +9,9 @@ public class GameHand : MonoBehaviour
 	public float CardZPos;
     public CardView CardPrefab;
     public GameArea CardPlayArea;
-    private List<PlayableCard> Cards = new List<PlayableCard>();
+    public GamePlay gamePlay;
+    public GameNetworkDirector gameDirector;
+    public List<PlayableCard> Cards = new List<PlayableCard>();
 
     public void AddCard(CardData card)
     {
@@ -37,5 +39,11 @@ public class GameHand : MonoBehaviour
         RearrangeCards();
         CardPlayArea.AddCard(card.Card);
         Destroy(card.gameObject);
+    }
+
+    public void PlayCardByIndex(int i)
+    {
+        PlayableCard card = Cards[i];
+        PlayCard(card);
     }
 }

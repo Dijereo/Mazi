@@ -7,11 +7,18 @@ public class InputController : MonoBehaviour
 {
 	public AttackerCard Attacker = null;
 	public DefenderCard Defender = null;
-	public GamePlay gameplay;
+	public GamePlay gamePlay;
+	public GameNetworkDirector gameDirector;
 
 	public void MakeSelectedAttack()
 	{
-		gameplay.Attack(Attacker, Defender);
+		if (gamePlay.isMyTurn)
+		{
+			string attackCardIndex = Attacker.Area.Cards.IndexOf(Attacker).ToString();
+			string defenseCardIndex = Defender.Area.Cards.IndexOf(Defender).ToString();
+			gameDirector.SendCommand("ATTACK " + attackCardIndex + " " + defenseCardIndex);
+			gamePlay.Attack(Attacker, Defender);
+		}
 		Attacker = null;
 		Defender = null;
 	}
