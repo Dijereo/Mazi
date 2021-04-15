@@ -13,7 +13,7 @@ class MatchSerializer(serializers.ModelSerializer):
 class CardOwnedSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = CardOwned
-		fields = ['id', 'cardid']
+		fields = ['id', 'cardenum']
 
 
 class CardInstanceSerializer(serializers.ModelSerializer):

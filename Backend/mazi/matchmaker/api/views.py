@@ -76,10 +76,11 @@ class DeckView(APIView):
         #     return Response(serializer.errors)
 
 
-    def post(self, request, format=None):
+    def put(self, request, format=None):
         serializer = DeckSerializer(data=request.data)
         if serializer.is_valid():
             valid_data = serializer.validated_data
+            print(valid_data)
             player = get_object_or_404(PlayerAccount, player=request.user)
             deck = get_object_or_404(Deck, owner=player, pk=valid_data['id'])
             new_card_ids = set(c['card']['id'] for c in valid_data['cards'])
