@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4470866189858317658, guid: 17f9090237e529e44850525198e276b6, type: 3}
       propertyPath: m_text
-      value: Sign Out
+      value: Sign In
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17f9090237e529e44850525198e276b6, type: 3}

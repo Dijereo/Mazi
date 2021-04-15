@@ -15,7 +15,7 @@ public class GameConnection
         byte[] bytes = new byte[1024];
         try
         {
-            byte[] ipByteAddress = new byte[] {127, 0, 0, 1};
+            byte[] ipByteAddress = new byte[] {192, 168, 0, 2};
             IPAddress ipAddress = new IPAddress(ipByteAddress);
             IPEndPoint remoteEP = new IPEndPoint(ipAddress, 9009);
             Socket sender = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);

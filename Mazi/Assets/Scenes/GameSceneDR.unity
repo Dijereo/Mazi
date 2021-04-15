@@ -703,6 +703,7 @@ MonoBehaviour:
   CardSprite: {fileID: 21300000, guid: 06a2f0fd5b5b9714988cd8aa15af06e6, type: 3}
   playerOwned: 1
   director: {fileID: 1652948692}
+  cardFactory: {fileID: 1973212481}
 --- !u!4 &1168676019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5178067356112755769, guid: 905748610e9f1d74dbde2aeccda4c7d7, type: 3}
@@ -875,6 +876,7 @@ Transform:
   - {fileID: 1565547221}
   - {fileID: 1617081938}
   - {fileID: 1652948691}
+  - {fileID: 1973212480}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1618,10 +1620,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hand: {fileID: 1672000010}
-  CardElement: {fileID: 11400000, guid: 770a14776ffe3674190c1e2664c68507, type: 2}
+  CardElement: {fileID: 11400000, guid: 108776dddeab1b345b355d5a0dccb0c6, type: 2}
   CardSprite: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
   playerOwned: 0
   director: {fileID: 1652948692}
+  cardFactory: {fileID: 1973212481}
 --- !u!4 &1852590828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5178067356112755769, guid: 905748610e9f1d74dbde2aeccda4c7d7, type: 3}
@@ -1674,6 +1677,55 @@ Transform:
   m_Father: {fileID: 1275757447}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1973212479
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973212480}
+  - component: {fileID: 1973212481}
+  m_Layer: 0
+  m_Name: CardFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1973212480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973212479}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.471465, y: -0.64710575, z: -3.2679634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1275757447}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1973212481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973212479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216f02b8582c9fc44a1c71045a6598c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireElement: {fileID: 11400000, guid: 770a14776ffe3674190c1e2664c68507, type: 2}
+  WaterElement: {fileID: 11400000, guid: 108776dddeab1b345b355d5a0dccb0c6, type: 2}
+  DragonSprite: {fileID: 21300000, guid: 2c13ca4fe3e252c4a9779d08f71e9067, type: 3}
+  HydraSprite: {fileID: 21300000, guid: 06a2f0fd5b5b9714988cd8aa15af06e6, type: 3}
+  WarriorSprite: {fileID: 21300000, guid: 6e639aa3dbbcc2f47abb2f11f23598aa, type: 3}
+  TrollSprite: {fileID: 21300000, guid: 2916f66c215cf1a4895d31427a922867, type: 3}
 --- !u!1 &1976288563
 GameObject:
   m_ObjectHideFlags: 0

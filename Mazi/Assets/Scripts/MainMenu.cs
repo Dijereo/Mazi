@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    readonly string searchMatchURL = "http://127.0.0.1:8000/api/games/search/";
+    static string hostURL = "http://127.0.0.1:8000";
+    static string searchMatchURL = hostURL + "/api/games/search/";
     public QueueConnection queueconn;
     private bool startmatch = false;
 
@@ -19,12 +20,12 @@ public class MainMenu : MonoBehaviour
     }
 
 	public void SignOut() {
-        // SceneManager.LoadScene("SignInScene");
+        SceneManager.LoadScene("SignInScene");
 	}
 
     public void ManageDecks()
     {
-    	SceneManager.LoadScene("DecksScene");
+    	SceneManager.LoadScene("DecksScene2");
     }
 
     public void SearchGame() {

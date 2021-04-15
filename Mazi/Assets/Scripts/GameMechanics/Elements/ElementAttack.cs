@@ -22,7 +22,7 @@ public class ElementAttack : MonoBehaviour
         {
         	transform.position = AttackTarget;
         	AttackAnimator.SetBool("HitTarget", true);
-            Destroy(this.gameObject, 1f);
+            Destroy(this.gameObject, 3f);
         }
         else 
         {

@@ -12,8 +12,9 @@ public class SignIn : MonoBehaviour
 	public TMP_Text usernameText;
 	public TMP_Text passwordText;
 
-    readonly string signUpURL = "http://127.0.0.1:8000/api/accounts/signup/";
-    readonly string signInURL = "http://127.0.0.1:8000/api/accounts/signin/";
+    static string hostURL = "http://127.0.0.1:8000";
+    static string signUpURL = hostURL + "/api/accounts/signup/";
+    static string signInURL = hostURL + "/api/accounts/signin/";
 
     public void signIn() {
     	StartCoroutine(signInRequest(usernameText.text, passwordText.text));
