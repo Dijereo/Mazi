@@ -7,6 +7,8 @@ public class GamePlay : MonoBehaviour
 {
 	public GamePlayer player;
 	public GamePlayer opponent;
+	public GameNetworkDirector gameDirector;
+	public bool isMyTurn = false;
 
 	public void Attack(CombatCard attackingCard, CombatCard defendingCard)
 	{
@@ -40,6 +42,20 @@ public class GamePlay : MonoBehaviour
 			}
 		}
 		return netResult;
+	}
+
+	public void EndMyTurn()
+	{
+		if (isMyTurn)
+		{
+			EndTurn();
+		}
+		gameDirector.SendCommand("ENDTURN");
+	}
+
+	public void EndTurn()
+	{
+		isMyTurn = !isMyTurn;
 	}
 
 	private void GameOver()

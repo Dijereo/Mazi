@@ -9,6 +9,8 @@ public class PlayableCard : MonoBehaviour
 
 	void OnMouseDown()
 	{
+		string cardIndex = Hand.Cards.IndexOf(this).ToString();
 		Hand.PlayCard(this);
+		Hand.gameDirector.SendCommand("PLAYCARD " + cardIndex);
 	}
 }

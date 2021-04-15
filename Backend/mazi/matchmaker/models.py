@@ -18,7 +18,7 @@ class PlayerAccount(models.Model):
 	ranking = models.CharField(max_length=20, choices=RANKINGS, default='unranked')
 
 	def __str__(self):
-		return self.username
+		return f'{self.player} {self.ranking}'
 
 
 class Deck(models.Model):
@@ -31,7 +31,7 @@ class Deck(models.Model):
 
 class CardOwned(models.Model):
 	owner = models.ForeignKey(PlayerAccount, on_delete=models.CASCADE, related_name='cards')
-	cardid = models.IntegerField()
+	cardenum = models.IntegerField()
 
 
 class CardInstance(models.Model):

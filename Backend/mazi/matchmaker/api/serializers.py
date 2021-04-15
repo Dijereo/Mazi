@@ -13,10 +13,12 @@ class MatchSerializer(serializers.ModelSerializer):
 class CardOwnedSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = CardOwned
-		fields = ['id', 'cardid']
+		fields = ['id', 'cardenum']
 
 
 class CardInstanceSerializer(serializers.ModelSerializer):
+	card = CardOwnedSerializer()
+	
 	class Meta:
 		model = CardInstance
 		fields = ['card']
@@ -36,10 +38,19 @@ class PlayerAccountSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = PlayerAccount
-		fields = ['username', 'rating', 'cards', 'decks']
+		fields = ['rating', 'cards', 'decks']
 
 
 class SignInSerializer(serializers.Serializer):
 	password = serializers.CharField(style={'input_type': 'password'}, write_only=True)
 	username = serializers.CharField(max_length=32)
-	email = serializers.CharField(style={'input_type': 'email'})
+	# email = serializers.CharField(style={'input_type': 'email'})
+
+
+class SearchGameSerializer(serializers.Serializer):
+	username = serializers.CharField(max_length=32)
+	deckid = serializers.IntegerField()
+
+
+class GetDeckRequestSerializer(serializers.Serializer):
+	deckid = serializers.IntegerField()
