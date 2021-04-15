@@ -13,11 +13,11 @@ public class GameElement : ScriptableObject
 
 	public bool IsVulnerableTo(GameElement attacker)
 	{
-		return false;
+		return vulnerabilities.Contains(attacker);
 	}
 
 	public bool IsResistantTo(GameElement attacker)
 	{
-		return false;
+		return vulnerabilities.Contains(attacker);
 	}
 }
